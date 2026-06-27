@@ -1,0 +1,3807 @@
+{
+  "_meta": {
+    "count": 100
+  },
+  "cases": [
+    {
+      "id": "CASE-001",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1001",
+        "complaint": "Synthetic benchmark complaint #1",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2001",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1001,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1001",
+        "relevant_transaction_id": "TXN-2001",
+        "evidence_verdict": "inconsistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-002",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1002",
+        "complaint": "Synthetic benchmark complaint #2",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2002",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1002,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1002",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-003",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1003",
+        "complaint": "Synthetic benchmark complaint #3",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2003",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1003,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1003",
+        "relevant_transaction_id": "TXN-2003",
+        "evidence_verdict": "consistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-004",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1004",
+        "complaint": "Synthetic benchmark complaint #4",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2004",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1004,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1004",
+        "relevant_transaction_id": "TXN-2004",
+        "evidence_verdict": "inconsistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-005",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1005",
+        "complaint": "Synthetic benchmark complaint #5",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2005",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1005,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1005",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-006",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1006",
+        "complaint": "Synthetic benchmark complaint #6",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2006",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1006,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1006",
+        "relevant_transaction_id": "TXN-2006",
+        "evidence_verdict": "consistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-007",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1007",
+        "complaint": "Synthetic benchmark complaint #7",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2007",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1007,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1007",
+        "relevant_transaction_id": "TXN-2007",
+        "evidence_verdict": "inconsistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-008",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1008",
+        "complaint": "Synthetic benchmark complaint #8",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2008",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1008,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1008",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-009",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1009",
+        "complaint": "Synthetic benchmark complaint #9",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2009",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1009,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1009",
+        "relevant_transaction_id": "TXN-2009",
+        "evidence_verdict": "consistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-010",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1010",
+        "complaint": "Synthetic benchmark complaint #10",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2010",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1010,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1010",
+        "relevant_transaction_id": "TXN-2010",
+        "evidence_verdict": "inconsistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-011",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1011",
+        "complaint": "Synthetic benchmark complaint #11",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2011",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1011,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1011",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-012",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1012",
+        "complaint": "Synthetic benchmark complaint #12",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2012",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1012,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1012",
+        "relevant_transaction_id": "TXN-2012",
+        "evidence_verdict": "consistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-013",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1013",
+        "complaint": "Synthetic benchmark complaint #13",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2013",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1013,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1013",
+        "relevant_transaction_id": "TXN-2013",
+        "evidence_verdict": "inconsistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-014",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1014",
+        "complaint": "Synthetic benchmark complaint #14",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2014",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1014,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1014",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-015",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1015",
+        "complaint": "Synthetic benchmark complaint #15",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2015",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1015,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1015",
+        "relevant_transaction_id": "TXN-2015",
+        "evidence_verdict": "consistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-016",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1016",
+        "complaint": "Synthetic benchmark complaint #16",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2016",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1016,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1016",
+        "relevant_transaction_id": "TXN-2016",
+        "evidence_verdict": "inconsistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-017",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1017",
+        "complaint": "Synthetic benchmark complaint #17",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2017",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1017,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1017",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-018",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1018",
+        "complaint": "Synthetic benchmark complaint #18",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2018",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1018,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1018",
+        "relevant_transaction_id": "TXN-2018",
+        "evidence_verdict": "consistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-019",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1019",
+        "complaint": "Synthetic benchmark complaint #19",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2019",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1019,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1019",
+        "relevant_transaction_id": "TXN-2019",
+        "evidence_verdict": "inconsistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-020",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1020",
+        "complaint": "Synthetic benchmark complaint #20",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2020",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1020,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1020",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-021",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1021",
+        "complaint": "Synthetic benchmark complaint #21",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2021",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1021,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1021",
+        "relevant_transaction_id": "TXN-2021",
+        "evidence_verdict": "consistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-022",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1022",
+        "complaint": "Synthetic benchmark complaint #22",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2022",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1022,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1022",
+        "relevant_transaction_id": "TXN-2022",
+        "evidence_verdict": "inconsistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-023",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1023",
+        "complaint": "Synthetic benchmark complaint #23",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2023",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1023,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1023",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-024",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1024",
+        "complaint": "Synthetic benchmark complaint #24",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2024",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1024,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1024",
+        "relevant_transaction_id": "TXN-2024",
+        "evidence_verdict": "consistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-025",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1025",
+        "complaint": "Synthetic benchmark complaint #25",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2025",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1025,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1025",
+        "relevant_transaction_id": "TXN-2025",
+        "evidence_verdict": "inconsistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-026",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1026",
+        "complaint": "Synthetic benchmark complaint #26",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2026",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1026,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1026",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-027",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1027",
+        "complaint": "Synthetic benchmark complaint #27",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2027",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1027,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1027",
+        "relevant_transaction_id": "TXN-2027",
+        "evidence_verdict": "consistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-028",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1028",
+        "complaint": "Synthetic benchmark complaint #28",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2028",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1028,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1028",
+        "relevant_transaction_id": "TXN-2028",
+        "evidence_verdict": "inconsistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-029",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1029",
+        "complaint": "Synthetic benchmark complaint #29",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2029",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1029,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1029",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-030",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1030",
+        "complaint": "Synthetic benchmark complaint #30",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2030",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1030,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1030",
+        "relevant_transaction_id": "TXN-2030",
+        "evidence_verdict": "consistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-031",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1031",
+        "complaint": "Synthetic benchmark complaint #31",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2031",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1031,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1031",
+        "relevant_transaction_id": "TXN-2031",
+        "evidence_verdict": "inconsistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-032",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1032",
+        "complaint": "Synthetic benchmark complaint #32",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2032",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1032,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1032",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-033",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1033",
+        "complaint": "Synthetic benchmark complaint #33",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2033",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1033,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1033",
+        "relevant_transaction_id": "TXN-2033",
+        "evidence_verdict": "consistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-034",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1034",
+        "complaint": "Synthetic benchmark complaint #34",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2034",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1034,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1034",
+        "relevant_transaction_id": "TXN-2034",
+        "evidence_verdict": "inconsistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-035",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1035",
+        "complaint": "Synthetic benchmark complaint #35",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2035",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1035,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1035",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-036",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1036",
+        "complaint": "Synthetic benchmark complaint #36",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2036",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1036,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1036",
+        "relevant_transaction_id": "TXN-2036",
+        "evidence_verdict": "consistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-037",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1037",
+        "complaint": "Synthetic benchmark complaint #37",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2037",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1037,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1037",
+        "relevant_transaction_id": "TXN-2037",
+        "evidence_verdict": "inconsistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-038",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1038",
+        "complaint": "Synthetic benchmark complaint #38",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2038",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1038,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1038",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-039",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1039",
+        "complaint": "Synthetic benchmark complaint #39",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2039",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1039,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1039",
+        "relevant_transaction_id": "TXN-2039",
+        "evidence_verdict": "consistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-040",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1040",
+        "complaint": "Synthetic benchmark complaint #40",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2040",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1040,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1040",
+        "relevant_transaction_id": "TXN-2040",
+        "evidence_verdict": "inconsistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-041",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1041",
+        "complaint": "Synthetic benchmark complaint #41",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2041",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1041,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1041",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-042",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1042",
+        "complaint": "Synthetic benchmark complaint #42",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2042",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1042,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1042",
+        "relevant_transaction_id": "TXN-2042",
+        "evidence_verdict": "consistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-043",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1043",
+        "complaint": "Synthetic benchmark complaint #43",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2043",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1043,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1043",
+        "relevant_transaction_id": "TXN-2043",
+        "evidence_verdict": "inconsistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-044",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1044",
+        "complaint": "Synthetic benchmark complaint #44",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2044",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1044,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1044",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-045",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1045",
+        "complaint": "Synthetic benchmark complaint #45",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2045",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1045,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1045",
+        "relevant_transaction_id": "TXN-2045",
+        "evidence_verdict": "consistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-046",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1046",
+        "complaint": "Synthetic benchmark complaint #46",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2046",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1046,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1046",
+        "relevant_transaction_id": "TXN-2046",
+        "evidence_verdict": "inconsistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-047",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1047",
+        "complaint": "Synthetic benchmark complaint #47",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2047",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1047,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1047",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-048",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1048",
+        "complaint": "Synthetic benchmark complaint #48",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2048",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1048,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1048",
+        "relevant_transaction_id": "TXN-2048",
+        "evidence_verdict": "consistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-049",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1049",
+        "complaint": "Synthetic benchmark complaint #49",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2049",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1049,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1049",
+        "relevant_transaction_id": "TXN-2049",
+        "evidence_verdict": "inconsistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-050",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1050",
+        "complaint": "Synthetic benchmark complaint #50",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2050",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1050,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1050",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-051",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1051",
+        "complaint": "Synthetic benchmark complaint #51",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2051",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1051,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1051",
+        "relevant_transaction_id": "TXN-2051",
+        "evidence_verdict": "consistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-052",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1052",
+        "complaint": "Synthetic benchmark complaint #52",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2052",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1052,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1052",
+        "relevant_transaction_id": "TXN-2052",
+        "evidence_verdict": "inconsistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-053",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1053",
+        "complaint": "Synthetic benchmark complaint #53",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2053",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1053,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1053",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-054",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1054",
+        "complaint": "Synthetic benchmark complaint #54",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2054",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1054,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1054",
+        "relevant_transaction_id": "TXN-2054",
+        "evidence_verdict": "consistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-055",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1055",
+        "complaint": "Synthetic benchmark complaint #55",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2055",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1055,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1055",
+        "relevant_transaction_id": "TXN-2055",
+        "evidence_verdict": "inconsistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-056",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1056",
+        "complaint": "Synthetic benchmark complaint #56",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2056",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1056,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1056",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-057",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1057",
+        "complaint": "Synthetic benchmark complaint #57",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2057",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1057,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1057",
+        "relevant_transaction_id": "TXN-2057",
+        "evidence_verdict": "consistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-058",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1058",
+        "complaint": "Synthetic benchmark complaint #58",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2058",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1058,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1058",
+        "relevant_transaction_id": "TXN-2058",
+        "evidence_verdict": "inconsistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-059",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1059",
+        "complaint": "Synthetic benchmark complaint #59",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2059",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1059,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1059",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-060",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1060",
+        "complaint": "Synthetic benchmark complaint #60",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2060",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1060,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1060",
+        "relevant_transaction_id": "TXN-2060",
+        "evidence_verdict": "consistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-061",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1061",
+        "complaint": "Synthetic benchmark complaint #61",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2061",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1061,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1061",
+        "relevant_transaction_id": "TXN-2061",
+        "evidence_verdict": "inconsistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-062",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1062",
+        "complaint": "Synthetic benchmark complaint #62",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2062",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1062,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1062",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-063",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1063",
+        "complaint": "Synthetic benchmark complaint #63",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2063",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1063,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1063",
+        "relevant_transaction_id": "TXN-2063",
+        "evidence_verdict": "consistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-064",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1064",
+        "complaint": "Synthetic benchmark complaint #64",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2064",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1064,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1064",
+        "relevant_transaction_id": "TXN-2064",
+        "evidence_verdict": "inconsistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-065",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1065",
+        "complaint": "Synthetic benchmark complaint #65",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2065",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1065,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1065",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-066",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1066",
+        "complaint": "Synthetic benchmark complaint #66",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2066",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1066,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1066",
+        "relevant_transaction_id": "TXN-2066",
+        "evidence_verdict": "consistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-067",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1067",
+        "complaint": "Synthetic benchmark complaint #67",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2067",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1067,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1067",
+        "relevant_transaction_id": "TXN-2067",
+        "evidence_verdict": "inconsistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-068",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1068",
+        "complaint": "Synthetic benchmark complaint #68",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2068",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1068,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1068",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-069",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1069",
+        "complaint": "Synthetic benchmark complaint #69",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2069",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1069,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1069",
+        "relevant_transaction_id": "TXN-2069",
+        "evidence_verdict": "consistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-070",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1070",
+        "complaint": "Synthetic benchmark complaint #70",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2070",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1070,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1070",
+        "relevant_transaction_id": "TXN-2070",
+        "evidence_verdict": "inconsistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-071",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1071",
+        "complaint": "Synthetic benchmark complaint #71",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2071",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1071,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1071",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-072",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1072",
+        "complaint": "Synthetic benchmark complaint #72",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2072",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1072,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1072",
+        "relevant_transaction_id": "TXN-2072",
+        "evidence_verdict": "consistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-073",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1073",
+        "complaint": "Synthetic benchmark complaint #73",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2073",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1073,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1073",
+        "relevant_transaction_id": "TXN-2073",
+        "evidence_verdict": "inconsistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-074",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1074",
+        "complaint": "Synthetic benchmark complaint #74",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2074",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1074,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1074",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-075",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1075",
+        "complaint": "Synthetic benchmark complaint #75",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2075",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1075,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1075",
+        "relevant_transaction_id": "TXN-2075",
+        "evidence_verdict": "consistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-076",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1076",
+        "complaint": "Synthetic benchmark complaint #76",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2076",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1076,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1076",
+        "relevant_transaction_id": "TXN-2076",
+        "evidence_verdict": "inconsistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-077",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1077",
+        "complaint": "Synthetic benchmark complaint #77",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2077",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1077,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1077",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-078",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1078",
+        "complaint": "Synthetic benchmark complaint #78",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2078",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1078,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1078",
+        "relevant_transaction_id": "TXN-2078",
+        "evidence_verdict": "consistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-079",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1079",
+        "complaint": "Synthetic benchmark complaint #79",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2079",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1079,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1079",
+        "relevant_transaction_id": "TXN-2079",
+        "evidence_verdict": "inconsistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-080",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1080",
+        "complaint": "Synthetic benchmark complaint #80",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2080",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1080,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1080",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-081",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1081",
+        "complaint": "Synthetic benchmark complaint #81",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2081",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1081,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1081",
+        "relevant_transaction_id": "TXN-2081",
+        "evidence_verdict": "consistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-082",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1082",
+        "complaint": "Synthetic benchmark complaint #82",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2082",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1082,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1082",
+        "relevant_transaction_id": "TXN-2082",
+        "evidence_verdict": "inconsistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-083",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1083",
+        "complaint": "Synthetic benchmark complaint #83",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2083",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1083,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1083",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-084",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1084",
+        "complaint": "Synthetic benchmark complaint #84",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2084",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1084,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1084",
+        "relevant_transaction_id": "TXN-2084",
+        "evidence_verdict": "consistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-085",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1085",
+        "complaint": "Synthetic benchmark complaint #85",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2085",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1085,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1085",
+        "relevant_transaction_id": "TXN-2085",
+        "evidence_verdict": "inconsistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-086",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1086",
+        "complaint": "Synthetic benchmark complaint #86",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2086",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1086,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1086",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-087",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1087",
+        "complaint": "Synthetic benchmark complaint #87",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2087",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1087,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1087",
+        "relevant_transaction_id": "TXN-2087",
+        "evidence_verdict": "consistent",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-088",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1088",
+        "complaint": "Synthetic benchmark complaint #88",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2088",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1088,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1088",
+        "relevant_transaction_id": "TXN-2088",
+        "evidence_verdict": "inconsistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-089",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1089",
+        "complaint": "Synthetic benchmark complaint #89",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2089",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1089,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1089",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-090",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1090",
+        "complaint": "Synthetic benchmark complaint #90",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2090",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1090,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1090",
+        "relevant_transaction_id": "TXN-2090",
+        "evidence_verdict": "consistent",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-091",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1091",
+        "complaint": "Synthetic benchmark complaint #91",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2091",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1091,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1091",
+        "relevant_transaction_id": "TXN-2091",
+        "evidence_verdict": "inconsistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-092",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1092",
+        "complaint": "Synthetic benchmark complaint #92",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2092",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1092,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1092",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-093",
+      "label": "merchant_settlement_delay",
+      "input": {
+        "ticket_id": "TKT-1093",
+        "complaint": "Synthetic benchmark complaint #93",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2093",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1093,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1093",
+        "relevant_transaction_id": "TXN-2093",
+        "evidence_verdict": "consistent",
+        "case_type": "merchant_settlement_delay",
+        "severity": "medium",
+        "department": "merchant_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "merchant_settlement_delay",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-094",
+      "label": "agent_cash_in_issue",
+      "input": {
+        "ticket_id": "TKT-1094",
+        "complaint": "Synthetic benchmark complaint #94",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2094",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1094,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1094",
+        "relevant_transaction_id": "TXN-2094",
+        "evidence_verdict": "inconsistent",
+        "case_type": "agent_cash_in_issue",
+        "severity": "high",
+        "department": "agent_operations",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "agent_cash_in_issue",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-095",
+      "label": "phishing_or_social_engineering",
+      "input": {
+        "ticket_id": "TKT-1095",
+        "complaint": "Synthetic benchmark complaint #95",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2095",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1095,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1095",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "phishing_or_social_engineering",
+        "severity": "critical",
+        "department": "fraud_risk",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "phishing_or_social_engineering",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-096",
+      "label": "other",
+      "input": {
+        "ticket_id": "TKT-1096",
+        "complaint": "Synthetic benchmark complaint #96",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2096",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1096,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1096",
+        "relevant_transaction_id": "TXN-2096",
+        "evidence_verdict": "consistent",
+        "case_type": "other",
+        "severity": "low",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": false,
+        "confidence": 0.8,
+        "reason_codes": [
+          "other",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-097",
+      "label": "wrong_transfer",
+      "input": {
+        "ticket_id": "TKT-1097",
+        "complaint": "Synthetic benchmark complaint #97",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2097",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1097,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1097",
+        "relevant_transaction_id": "TXN-2097",
+        "evidence_verdict": "inconsistent",
+        "case_type": "wrong_transfer",
+        "severity": "medium",
+        "department": "dispute_resolution",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "wrong_transfer",
+          "inconsistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-098",
+      "label": "payment_failed",
+      "input": {
+        "ticket_id": "TKT-1098",
+        "complaint": "Synthetic benchmark complaint #98",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2098",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1098,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1098",
+        "relevant_transaction_id": null,
+        "evidence_verdict": "insufficient_data",
+        "case_type": "payment_failed",
+        "severity": "high",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "payment_failed",
+          "insufficient_data"
+        ]
+      }
+    },
+    {
+      "id": "CASE-099",
+      "label": "refund_request",
+      "input": {
+        "ticket_id": "TKT-1099",
+        "complaint": "Synthetic benchmark complaint #99",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2099",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1099,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1099",
+        "relevant_transaction_id": "TXN-2099",
+        "evidence_verdict": "consistent",
+        "case_type": "refund_request",
+        "severity": "critical",
+        "department": "customer_support",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "refund_request",
+          "consistent"
+        ]
+      }
+    },
+    {
+      "id": "CASE-100",
+      "label": "duplicate_payment",
+      "input": {
+        "ticket_id": "TKT-1100",
+        "complaint": "Synthetic benchmark complaint #100",
+        "language": "en",
+        "channel": "in_app_chat",
+        "user_type": "customer",
+        "transaction_history": [
+          {
+            "transaction_id": "TXN-2100",
+            "timestamp": "2026-04-15T10:00:00Z",
+            "type": "transfer",
+            "amount": 1100,
+            "counterparty": "+8801700000000",
+            "status": "completed"
+          }
+        ]
+      },
+      "expected_output": {
+        "ticket_id": "TKT-1100",
+        "relevant_transaction_id": "TXN-2100",
+        "evidence_verdict": "inconsistent",
+        "case_type": "duplicate_payment",
+        "severity": "low",
+        "department": "payments_ops",
+        "agent_summary": "Synthetic summary.",
+        "recommended_next_action": "Investigate according to policy.",
+        "customer_reply": "We have noted your concern. Please do not share your PIN or OTP. Any eligible amount will be processed through official channels.",
+        "human_review_required": true,
+        "confidence": 0.8,
+        "reason_codes": [
+          "duplicate_payment",
+          "inconsistent"
+        ]
+      }
+    }
+  ]
+}
