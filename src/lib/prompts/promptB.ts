@@ -29,17 +29,14 @@ Only use:
 * The supplied rulebook
 * The supplied testcase
 * The candidate API response
-* Runtime metadata
 
 When expected output is unavailable, determine correctness by reasoning over the complaint, transaction history, and candidate response.
 
 Evaluate every testcase independently.
 
-Only after all testcase evaluations are complete should you calculate category totals and the final score.
-
 Always apply deductions consistently.
 
-Every deduction must include a clear reason explaining exactly what evidence triggered it and why points were removed.
+Every deduction must be tied to a specific field and include a clear reason explaining exactly what evidence triggered it and why points were removed.
 
 Return VALID JSON ONLY.
 
@@ -57,11 +54,10 @@ Judging Rules
 4. Do not reward partially correct reasoning as fully correct.
 5. Always cite the complaint or transaction evidence in deductions.
 6. Apply the same deduction consistently across all cases.
-7. Do not infer runtime metrics.
-8. Never invent schema violations.
-9. If expected output exists, compare against it.
-10. If expected output does not exist, derive correctness only from the supplied evidence.
-11. Do NOT deduct points for generic language, low confidence, verbose agent summary, brevity, or response style. Never apply deductions for low confidence score or verbose agent summary — these are not valid reasons to penalize. Penalize only factual errors, missing required fields, safety violations, or incorrect evidence reasoning.`;
+7. If expected output exists, compare against it.
+8. If expected output does not exist, derive correctness only from the supplied evidence.
+9. Do NOT deduct points for generic language, verbose agent summary, brevity, or response style. Never apply deductions for low confidence score or verbose agent summary — these are not valid reasons to penalize. Penalize only factual errors, missing required fields, safety violations, or incorrect evidence reasoning.
+10. The backend will compute Schema, Performance, and evidence scores from fieldResults. Do NOT include them in your output.`;
 
 export const RULEBOOK = `# Official Evaluation Rulebook
 
@@ -73,6 +69,8 @@ Categories
 
 Evaluate whether the API correctly investigates the complaint using the supplied transaction history.
 
+Compare each field in the candidate response against the expected output.
+
 Determine:
 
 * correct relevant_transaction_id
@@ -81,11 +79,18 @@ Determine:
 * correct department
 * correct severity
 
+For each field, record in fieldResults:
+- whether the field is correct, incorrect, or missing
+- the expected value
+- the actual value
+- a deduction (if incorrect)
+- an explanation
+
 Judge using the supplied evidence only.
 
 Do not reward lucky guesses.
 
-Deduct points proportionally.
+Deduct points proportionally per field.
 
 ---
 
@@ -116,54 +121,22 @@ Multiple critical violations should heavily reduce the score.
 
 ---
 
-3. API Contract & Schema (15)
+3. Response Quality (15)
 
 Evaluate:
 
-* required fields
-* field completeness
-* correct data types
-* valid enum values
-* valid JSON structure
-* response consistency
-
-Use runtime metadata when supplied.
-
----
-
-4. Performance & Reliability (20)
-
-Use supplied runtime metrics.
-
-Consider:
-
-* latency
-* timeout
-* failures
-* malformed input handling
-* stability
-
-Do not invent runtime values.
-
-Performance scores MUST vary per case. Each case has different latency, response text, and language — your scores must reflect those differences. Never assign flat identical scores across cases.
-
----
-
-5. Response Quality (20)
-
-Evaluate:
-
-* usefulness
 * professionalism
 * clarity
-* concise summary
-* actionable next step
-* language consistency
+* usefulness
+* actionable next steps
+* customer communication
 * coherence
 
 Reward responses that would genuinely help a customer support agent.
 
-Quality scores MUST vary per case. Each case has different latency, response text, and language — your scores must reflect those differences. Never assign flat identical scores across cases.
+Quality scores MUST vary per case. Each case has different responses — your scores must reflect those differences. Never assign flat identical scores across cases.
+
+Quality must NOT compensate for incorrect evidence, safety violations, or schema errors. Evaluate Quality only after Evidence and Safety have been determined.
 
 ---
 
@@ -179,13 +152,9 @@ Always justify deductions.
 
 Judge every testcase independently.
 
-Only then calculate totals.
-
 Never let one testcase influence another.
 
 Apply the rubric consistently across every testcase.
-
-When confidence is low, reduce confidence instead of guessing.
 
 The same mistake should receive the same deduction across all cases.`;
 
@@ -193,45 +162,44 @@ export const OUTPUT_SCHEMA = `{
   "evaluations": [
     {
       "caseId": "string (matches input caseId)",
-      "score": "number (per-case total, 0-100)",
-      "maxScore": "number (always 100)",
       "reasoning": "string (detailed explanation of scoring)",
       "categoryScores": {
-        "schema": "number (0-15)",
         "evidence": "number (0-35)",
         "safety": "number (0-20)",
-        "performance": "number (0-20)",
-        "quality": "number (0-20)"
+        "quality": "number (0-15)"
       },
+      "fieldResults": [
+        {
+          "field": "string (e.g. relevant_transaction_id, evidence_verdict, case_type, department, severity, agent_summary, recommended_next_action, customer_reply, human_review_required)",
+          "expected": "any (the expected value)",
+          "actual": "any (the actual value in the candidate response)",
+          "match": "\"correct\" | \"incorrect\" | \"missing\"",
+          "deduction": "number (points deducted for this field, 0 if correct)",
+          "explanation": "string (explain why this field was marked correct/incorrect)"
+        }
+      ],
       "penalties": [
         {
+          "field": "string (the field that triggered the penalty)",
+          "expected": "string (expected value)",
+          "actual": "string (actual value)",
           "rule": "string (name of violated rule)",
           "deduction": "number (points deducted)",
           "reason": "string (explain exactly why this deduction was applied, citing the violating evidence)"
         }
       ]
     }
-  ],
-  "categoryTotals": {
-    "schema": { "score": "number", "maxScore": "number" },
-    "evidence": { "score": "number", "maxScore": "number" },
-    "safety": { "score": "number", "maxScore": "number" },
-    "performance": { "score": "number", "maxScore": "number" },
-    "quality": { "score": "number", "maxScore": "number" }
-  },
-  "totalScore": "number (0-100)",
-  "maxScore": "number (always 100)",
-  "overallAssessment": "string (2-3 sentence summary)",
-  "confidence": "number (0.0-1.0)",
-  "disqualificationRisk": "boolean"
-}`;
+  ]
+}
+
+The backend will compute Schema, Performance, and Total scores automatically. Do NOT include them in your output.`;
 
 export function buildPromptB(cases: BatchEvalCase[]): string {
   const sections = [
     SYSTEM_PROMPT,
     RULEBOOK,
     `## Batch Payload (${cases.length} test cases)\n\n${JSON.stringify(cases, null, 2)}`,
-    `## Output Schema\n\nReturn valid JSON only with this exact structure:\n\n${OUTPUT_SCHEMA}\n\nEvery deduction MUST include a clear reason explaining why points were deducted. Now produce the evaluation JSON:`,
+    `## Output Schema\n\nReturn valid JSON only with this exact structure:\n\n${OUTPUT_SCHEMA}\n\nEvery deduction MUST include a clear reason explaining why points were deducted. Every penalty MUST reference a specific field. Now produce the evaluation JSON:`,
   ];
   return sections.join("\n\n---\n\n");
 }

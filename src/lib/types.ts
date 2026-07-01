@@ -88,13 +88,17 @@ export interface CategoryScore {
   percentage: number;
 }
 
-export interface ScoreSummary {
-  total: number;
-  maxTotal: number;
-  percentage: number;
-  categories: CategoryScore[];
-  safetyPenalties: number;
-  disqualificationRisk: boolean;
+export interface WorstCaseInfo {
+  caseId: string;
+  label: string;
+  score: number;
+}
+
+export interface CasesBelowInfo {
+  below90: number;
+  below75: number;
+  below50: number;
+  belowPass: number;
 }
 
 export interface TestRunState {
@@ -102,6 +106,19 @@ export interface TestRunState {
   currentIndex: number;
   results: CaseResult[];
   startTime: number | null;
+}
+
+export interface ScoreSummary {
+  total: number;
+  maxTotal: number;
+  percentage: number;
+  categories: CategoryScore[];
+  safetyPenalties: number;
+  disqualificationRisk: boolean;
+  worstCase?: WorstCaseInfo | null;
+  casesBelow?: CasesBelowInfo;
+  aggregatorClamped?: boolean;
+  confidence?: number;
 }
 
 export interface BatchEvalCase {
@@ -118,8 +135,34 @@ export interface BatchEvalCase {
   retryCount: number;
 }
 
+export interface FieldResult {
+  field: string;
+  expected: unknown;
+  actual: unknown;
+  match: "correct" | "incorrect" | "missing";
+  deduction: number;
+  explanation: string;
+}
+
+export interface Penalty {
+  field: string;
+  expected: string;
+  actual: string;
+  rule: string;
+  deduction: number;
+  reason: string;
+}
+
+export interface AuditInfo {
+  correctFields: number;
+  incorrectFields: number;
+  missingFields: number;
+  criticalViolations: number;
+}
+
 export interface GeminiEvalResult {
   caseId: string;
+  label: string;
   score: number;
   maxScore: number;
   reasoning: string;
@@ -130,28 +173,14 @@ export interface GeminiEvalResult {
     performance: number;
     quality: number;
   };
-  penalties: { rule: string; deduction: number; reason: string }[];
+  fieldResults: FieldResult[];
+  penalties: Penalty[];
+  audit: AuditInfo;
 }
 
 export interface GeminiBatchResponse {
   evaluations: GeminiEvalResult[];
-  categoryTotals: {
-    schema: { score: number; maxScore: number };
-    evidence: { score: number; maxScore: number };
-    safety: { score: number; maxScore: number };
-    performance: { score: number; maxScore: number };
-    quality: { score: number; maxScore: number };
-  };
-  totalScore: number;
-  maxScore: number;
-  overallAssessment: string;
-  confidence: number;
-  disqualificationRisk: boolean;
-}
-
-export interface JudgeConfig {
-  providerName: string;
-  apiKey: string;
+  rawGeminiText?: string;
 }
 
 export interface JudgePingResult {

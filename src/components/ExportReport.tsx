@@ -1,22 +1,23 @@
 "use client";
 
-import { CaseResult, ScoreSummary, GeminiBatchResponse } from "@/lib/types";
+import { CaseResult, ScoreSummary, GeminiBatchResponse, SampleCase } from "@/lib/types";
 
 interface ExportReportProps {
   results: CaseResult[];
   summary: ScoreSummary;
   geminiResult: GeminiBatchResponse | null;
   apiUrl: string;
+  testCases?: SampleCase[];
 }
 
-export default function ExportReport({ results, summary, geminiResult, apiUrl }: ExportReportProps) {
+export default function ExportReport({ results, summary, geminiResult, apiUrl, testCases }: ExportReportProps) {
   const exportJSON = () => {
-    const report = {
-      exportedAt: new Date().toISOString(),
-      targetApi: apiUrl,
-      score: summary,
-      judgeEvaluation: geminiResult,
-      results: results.map((r) => ({
+    const evalMap = new Map(geminiResult?.evaluations.map((e) => [e.caseId, e]) || []);
+    const caseMap = new Map(testCases?.map((tc) => [tc.id, tc]) || []);
+
+    const detailedResults = results.map((r) => {
+      const tc = caseMap.get(r.caseId);
+      return {
         caseId: r.caseId,
         label: r.label,
         status: r.status,
@@ -26,8 +27,22 @@ export default function ExportReport({ results, summary, geminiResult, apiUrl }:
         networkError: r.networkError,
         parseSuccess: r.parseSuccess,
         retryCount: r.retryCount,
+        requestMethod: r.requestMethod,
+        requestUrl: r.requestUrl,
+        error: r.error ?? null,
+        input: tc?.input ?? null,
+        expectedOutput: tc?.expected_output ?? null,
         response: r.response,
-      })),
+        evaluation: evalMap.get(r.caseId) ?? null,
+      };
+    });
+
+    const report = {
+      exportedAt: new Date().toISOString(),
+      targetApi: apiUrl,
+      score: summary,
+      judgeEvaluation: geminiResult,
+      results: detailedResults,
     };
     const blob = new Blob([JSON.stringify(report, null, 2)], { type: "application/json" });
     downloadBlob(blob, `queuestorm-report-${Date.now()}.json`);

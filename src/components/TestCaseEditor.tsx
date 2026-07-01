@@ -2,6 +2,17 @@
 
 import { SampleCase, Transaction } from "@/lib/types";
 import { useState, useEffect } from "react";
+import {
+  ALLOWED_LANGUAGES,
+  ALLOWED_CHANNELS,
+  ALLOWED_USER_TYPES,
+  ALLOWED_TRANSACTION_TYPES,
+  ALLOWED_TRANSACTION_STATUSES,
+  ALLOWED_EVIDENCE_VERDICTS,
+  ALLOWED_CASE_TYPES,
+  ALLOWED_SEVERITIES,
+  ALLOWED_DEPARTMENTS,
+} from "@/lib/enums";
 
 interface TestCaseEditorProps {
   caseData: SampleCase | null;
@@ -120,23 +131,25 @@ export default function TestCaseEditor({ caseData, onSave, onClose }: TestCaseEd
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Language</label>
               <select value={language} onChange={(e) => setLanguage(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option value="en">English</option>
-                <option value="bn">Bangla</option>
+                {ALLOWED_LANGUAGES.map((l) => (
+                  <option key={l} value={l}>{l === "en" ? "English" : l === "bn" ? "Bangla" : l}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Channel</label>
               <select value={channel} onChange={(e) => setChannel(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option value="in_app_chat">In-App Chat</option>
-                <option value="call_center">Call Center</option>
-                <option value="merchant_portal">Merchant Portal</option>
+                {ALLOWED_CHANNELS.map((ch) => (
+                  <option key={ch} value={ch}>{ch.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">User Type</label>
               <select value={userType} onChange={(e) => setUserType(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option value="customer">Customer</option>
-                <option value="merchant">Merchant</option>
+                {ALLOWED_USER_TYPES.map((ut) => (
+                  <option key={ut} value={ut}>{ut.charAt(0).toUpperCase() + ut.slice(1)}</option>
+                ))}
               </select>
             </div>
           </div>
@@ -159,18 +172,16 @@ export default function TestCaseEditor({ caseData, onSave, onClose }: TestCaseEd
                   <input placeholder="ID (e.g. TXN-xxx)" value={txn.transaction_id} onChange={(e) => updateTxn(i, "transaction_id", e.target.value)} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]" />
                   <input placeholder="Timestamp" value={txn.timestamp} onChange={(e) => updateTxn(i, "timestamp", e.target.value)} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]" />
                   <select value={txn.type} onChange={(e) => updateTxn(i, "type", e.target.value)} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                    <option>transfer</option>
-                    <option>payment</option>
-                    <option>cash_in</option>
-                    <option>cash_out</option>
-                    <option>settlement</option>
+                    {ALLOWED_TRANSACTION_TYPES.map((tt) => (
+                      <option key={tt} value={tt}>{tt}</option>
+                    ))}
                   </select>
                   <input placeholder="Amount" type="number" value={txn.amount} onChange={(e) => updateTxn(i, "amount", Number(e.target.value))} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]" />
                   <input placeholder="Counterparty" value={txn.counterparty} onChange={(e) => updateTxn(i, "counterparty", e.target.value)} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]" />
                   <select value={txn.status} onChange={(e) => updateTxn(i, "status", e.target.value)} className="rounded border border-[var(--color-border)] bg-[var(--color-bg-surface)] px-2 py-1.5 text-xs text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                    <option>completed</option>
-                    <option>pending</option>
-                    <option>failed</option>
+                    {ALLOWED_TRANSACTION_STATUSES.map((ts) => (
+                      <option key={ts} value={ts}>{ts}</option>
+                    ))}
                   </select>
                 </div>
               </div>
@@ -181,42 +192,33 @@ export default function TestCaseEditor({ caseData, onSave, onClose }: TestCaseEd
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Verdict</label>
               <select value={expectedVerdict} onChange={(e) => setExpectedVerdict(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option>consistent</option>
-                <option>inconsistent</option>
-                <option>insufficient_data</option>
+                {ALLOWED_EVIDENCE_VERDICTS.map((v) => (
+                  <option key={v} value={v}>{v}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Case Type</label>
               <select value={expectedCaseType} onChange={(e) => setExpectedCaseType(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option>wrong_transfer</option>
-                <option>payment_failed</option>
-                <option>refund_request</option>
-                <option>duplicate_payment</option>
-                <option>merchant_settlement_delay</option>
-                <option>agent_cash_in_issue</option>
-                <option>phishing_or_social_engineering</option>
-                <option>other</option>
+                {ALLOWED_CASE_TYPES.map((ct) => (
+                  <option key={ct} value={ct}>{ct}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Department</label>
               <select value={expectedDept} onChange={(e) => setExpectedDept(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option>customer_support</option>
-                <option>dispute_resolution</option>
-                <option>payments_ops</option>
-                <option>merchant_operations</option>
-                <option>agent_operations</option>
-                <option>fraud_risk</option>
+                {ALLOWED_DEPARTMENTS.map((d) => (
+                  <option key={d} value={d}>{d}</option>
+                ))}
               </select>
             </div>
             <div>
               <label className="block text-xs font-semibold text-[var(--color-text-secondary)] uppercase mb-1">Severity</label>
               <select value={expectedSeverity} onChange={(e) => setExpectedSeverity(e.target.value)} className="w-full rounded border border-[var(--color-border)] bg-[var(--color-bg-primary)] px-3 py-2 text-sm text-[var(--color-text-primary)] outline-none focus:border-[var(--color-primary)]">
-                <option>low</option>
-                <option>medium</option>
-                <option>high</option>
-                <option>critical</option>
+                {ALLOWED_SEVERITIES.map((s) => (
+                  <option key={s} value={s}>{s}</option>
+                ))}
               </select>
             </div>
           </div>

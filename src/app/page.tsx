@@ -247,6 +247,7 @@ export default function Home() {
               summary={scoreSummary || { total: 0, maxTotal: 100, percentage: 0, categories: [], safetyPenalties: 0, disqualificationRisk: false }}
               geminiResult={geminiResult}
               apiUrl={apiUrl}
+              testCases={testCases}
             />
           </div>
         </div>

@@ -127,8 +127,8 @@ export default function TestCaseResult({ result, geminiEval, expanded, onToggle 
                   { label: "Schema", score: geminiEval.categoryScores.schema, max: 15 },
                   { label: "Evidence", score: geminiEval.categoryScores.evidence, max: 35 },
                   { label: "Safety", score: geminiEval.categoryScores.safety, max: 20 },
-                  { label: "Performance", score: geminiEval.categoryScores.performance, max: 20 },
-                  { label: "Quality", score: geminiEval.categoryScores.quality, max: 20 },
+                  { label: "Performance", score: geminiEval.categoryScores.performance, max: 15 },
+                  { label: "Quality", score: geminiEval.categoryScores.quality, max: 15 },
                 ].map((cat) => (
                   <div key={cat.label} className="rounded bg-[var(--color-bg-card)] px-3 py-2 text-xs">
                     <div className="text-[var(--color-text-muted)] uppercase tracking-wider">{cat.label}</div>
@@ -140,6 +140,47 @@ export default function TestCaseResult({ result, geminiEval, expanded, onToggle 
               <div className="text-xs text-[var(--color-text-secondary)] mb-2">
                 <span className="font-bold text-[var(--color-primary)]">Total: {geminiEval.score}/{geminiEval.maxScore}</span>
               </div>
+
+              {geminiEval.fieldResults.length > 0 && (
+                <div className="mb-3">
+                  <h5 className="text-xs font-bold text-[var(--color-text-secondary)] uppercase tracking-wider mb-1">
+                    Evidence Field Results
+                  </h5>
+                  <div className="space-y-1">
+                    {geminiEval.fieldResults.map((fr) => (
+                      <div key={fr.field} className={`rounded px-3 py-1.5 text-xs flex items-center justify-between ${
+                        fr.match === "correct"
+                          ? "bg-[var(--color-success-bg)] text-[var(--color-success)]"
+                          : "bg-[var(--color-danger-bg)] text-[var(--color-danger)]"
+                      }`}>
+                        <div>
+                          <span className="font-mono">{fr.field}</span>
+                          {fr.match !== "correct" && (
+                            <span className="ml-2 text-[10px] opacity-75">expected: {JSON.stringify(fr.expected)}</span>
+                          )}
+                        </div>
+                        <span>
+                          {fr.match === "correct" ? "✓ match" : `✗ -${Math.abs(fr.deduction)}`}
+                        </span>
+                        {fr.match !== "correct" && fr.explanation && (
+                          <div className="text-[10px] opacity-70 mt-0.5 col-span-full">
+                            {fr.explanation}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {geminiEval.audit && (
+                <div className="mb-3 rounded bg-[var(--color-bg-card)] px-3 py-2 text-[10px] text-[var(--color-text-muted)] font-mono">
+                  audit: correct={geminiEval.audit.correctFields} incorrect={geminiEval.audit.incorrectFields} missing={geminiEval.audit.missingFields}
+                  {geminiEval.audit.criticalViolations > 0 && (
+                    <span className="text-[var(--color-danger)] ml-2">criticalViolations={geminiEval.audit.criticalViolations}</span>
+                  )}
+                </div>
+              )}
 
               <div className="rounded bg-[var(--color-bg-primary)] p-3 text-xs text-[var(--color-text-secondary)] mb-3">
                 {geminiEval.reasoning}
@@ -154,6 +195,7 @@ export default function TestCaseResult({ result, geminiEval, expanded, onToggle 
                     {geminiEval.penalties.map((pen, i) => (
                       <div key={i} className="rounded bg-[var(--color-danger-bg)] px-3 py-1.5 text-xs text-[var(--color-danger)]">
                         <strong>{pen.rule}:</strong> -{pen.deduction} pts
+                        {pen.field && <span className="ml-1 opacity-70">(field: {pen.field})</span>}
                         {pen.reason && <div className="mt-0.5 text-[11px] opacity-80">{pen.reason}</div>}
                       </div>
                     ))}
