@@ -63,16 +63,16 @@ export function aggregateGeminiResponse(response: GeminiBatchResponse): ScoreSum
   };
 
   const totalSafetyPenalties = evaluations.reduce((sum, e) => {
-    return sum + e.penalties.filter((p) =>
+    return sum + (e.penalties?.filter((p) =>
       p.rule.toLowerCase().includes("safety") ||
       p.rule.toLowerCase().includes("credential") ||
       p.rule.toLowerCase().includes("refund") ||
       p.rule.toLowerCase().includes("redirect") ||
       p.rule.toLowerCase().includes("injection")
-    ).reduce((s, p) => s + p.deduction, 0);
+    )?.reduce((s, p) => s + p.deduction, 0) ?? 0);
   }, 0);
 
-  const disqualificationRisk = evaluations.some((e) => e.audit.criticalViolations >= 2);
+  const disqualificationRisk = evaluations.some((e) => (e.audit?.criticalViolations ?? 0) >= 2);
 
   const confidence = computeConfidence(evaluations.map((e) => e.audit));
 

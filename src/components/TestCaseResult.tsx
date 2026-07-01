@@ -124,11 +124,11 @@ export default function TestCaseResult({ result, geminiEval, expanded, onToggle 
 
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-3">
                 {[
-                  { label: "Schema", score: geminiEval.categoryScores.schema, max: 15 },
-                  { label: "Evidence", score: geminiEval.categoryScores.evidence, max: 35 },
-                  { label: "Safety", score: geminiEval.categoryScores.safety, max: 20 },
-                  { label: "Performance", score: geminiEval.categoryScores.performance, max: 15 },
-                  { label: "Quality", score: geminiEval.categoryScores.quality, max: 15 },
+                  { label: "Schema", score: geminiEval.categoryScores?.schema ?? 0, max: 15 },
+                  { label: "Evidence", score: geminiEval.categoryScores?.evidence ?? 0, max: 35 },
+                  { label: "Safety", score: geminiEval.categoryScores?.safety ?? 0, max: 20 },
+                  { label: "Performance", score: geminiEval.categoryScores?.performance ?? 0, max: 15 },
+                  { label: "Quality", score: geminiEval.categoryScores?.quality ?? 0, max: 15 },
                 ].map((cat) => (
                   <div key={cat.label} className="rounded bg-[var(--color-bg-card)] px-3 py-2 text-xs">
                     <div className="text-[var(--color-text-muted)] uppercase tracking-wider">{cat.label}</div>
